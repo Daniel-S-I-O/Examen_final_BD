@@ -10,7 +10,7 @@ const app = express()
 // Importar las rutas de los estudiantes
 import EstudiantesRoute from './routes/EstudiantesRoute.js';
 // Importar las rutas de los profesores
-import ProfesoresRoute from './routes/profesoresRoute.js'
+import ProfesoresRoute from './routes/ProfesoresRoute.js'
 // Importar las rutas de los cursos
 import CursosRoute from './routes/CursosRoute.js';
 // Importar las rutas de inscripciones
