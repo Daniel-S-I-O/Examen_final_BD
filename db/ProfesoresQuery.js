@@ -15,7 +15,7 @@ const listarTodosprofesoresQuery = () => {
                 reject(err);
             } else {
                 // Si no hay error, devolvemos los datos de la tabla 
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -31,7 +31,7 @@ const listarprofesoresPorIdQuery = (id_profesor) => {
                 console.log(err);
                 reject(err);
             } else {
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -49,7 +49,7 @@ const crearprofesoresQuery = async (profesores) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -66,7 +66,7 @@ const actualizarprofesoresQuery = (id_profesor, profesores) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -82,7 +82,7 @@ const eliminarprofesoresQuery = (id_profesor) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });

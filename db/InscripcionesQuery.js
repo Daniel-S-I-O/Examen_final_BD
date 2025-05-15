@@ -15,7 +15,7 @@ const listarTodosinscripcionesQuery = () => {
                 reject(err);
             } else {
                 // Si no hay error, devolvemos los datos de la tabla 
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -31,7 +31,7 @@ const listarinscripcionesPorIdQuery = (id_inscripcion) => {
                 console.log(err);
                 reject(err);
             } else {
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -49,7 +49,7 @@ const crearinscripcionesQuery = async (inscripciones) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -66,7 +66,7 @@ const actualizarinscripcionesQuery = (id_inscripcion, inscripciones) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -82,7 +82,7 @@ const eliminarinscripcionesQuery = (id_inscripcion) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });

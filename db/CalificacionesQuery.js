@@ -15,7 +15,7 @@ const listarTodoscalificacionesQuery = () => {
                 reject(err);
             } else {
                 // Si no hay error, devolvemos los datos de la tabla 
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -31,7 +31,7 @@ const listarcalificacionesPorIdQuery = (id_calificaciones) => {
                 console.log(err);
                 reject(err);
             } else {
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -49,7 +49,7 @@ const crearcalificacionesQuery = async (calificaciones) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -66,7 +66,7 @@ const actualizarcalificacionesQuery = (id_calificaciones, calificaciones) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -82,7 +82,7 @@ const eliminarcalificacionesQuery = (id_calificaciones) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });

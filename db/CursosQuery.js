@@ -15,7 +15,7 @@ const listarTodoscursosQuery = () => {
                 reject(err);
             } else {
                 // Si no hay error, devolvemos los datos de la tabla 
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -31,7 +31,7 @@ const listarcursosPorIdQuery = (id_curso) => {
                 console.log(err);
                 reject(err);
             } else {
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -49,7 +49,7 @@ const crearcursosQuery = async (cursos) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -66,7 +66,7 @@ const actualizarcursosQuery = (id_curso, cursos) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -82,7 +82,7 @@ const eliminarcursosQuery = (id_curso) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
