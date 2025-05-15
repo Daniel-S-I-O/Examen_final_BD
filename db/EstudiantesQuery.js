@@ -15,7 +15,7 @@ const listarTodosestudiantesQuery = () => {
                 reject(err);
             } else {
                 // Si no hay error, devolvemos los datos de la tabla 
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -31,7 +31,7 @@ const listarestudiantesPorIdQuery = (id_estudiante) => {
                 console.log(err);
                 reject(err);
             } else {
-                resolve(filas);
+                resolve(filas.rows);
             }
         });
     });
@@ -49,7 +49,7 @@ const crearestudiantesQuery = async (estudiantes) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -66,7 +66,7 @@ const actualizarestudiantesQuery = (id_estudiante, estudiante) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });
@@ -82,7 +82,7 @@ const eliminarestudiantesQuery = (id_estudiante) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(resultado);
+                resolve(resultado.rows);
             }
         });
     });

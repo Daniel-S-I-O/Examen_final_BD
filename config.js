@@ -1,4 +1,4 @@
-import {createConnection, createPool} from 'mysql2';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 // Load env variables
@@ -6,35 +6,33 @@ dotenv.config();
 
 // Create a pool to avoid the overhead of creating a new connection every time one is needed
 
-const config = createPool({
-    host: process.env.DB_HOST, 
+const config = new Pool({
+    host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: Number(process.env.DB_PORT),
-    keepAliveInitialDelay: 300000,
-    enableKeepAlive: true,
-})
+    ssl: { rejectUnauthorized: false },
+    max: 10, // maximum number of clients in the pool
+    idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+    connectionTimeoutMillis: 2000, // time to wait before timing out when connecting a new client
+});
 
 // Validate the connection
 
-config.getConnection((err, connection) => {
+config.connect((err, client, release) => {
     if (err) {
         console.error('ERROR: ', err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            console.error('La conexión a la base de datos fue cerrada.');
+        switch (err.code) {
+            case 'ECONNREFUSED':
+                console.error('La conexión a la base de datos fue rechazada.');
+                break;
+            default:
+                console.error('Error de conexión desconocido.');
         }
-        if (err.code === 'ER_CON_COUNT_ERROR') {
-            console.error('La base de datos tiene muchas conexiones.');
-        }
-        if (err.code === 'ECONNREFUSED') {
-            console.error('La conexión a la base de datos fue rechazada.');
-        }
+    } else {
+        console.log('Conexión a la base de datos establecida.');
+        release(); // Release the client back to the pool
     }
-    if (connection) {
-        connection.release();
-    }
-    return;
-})
-
-export {config};
+});
+export { config };
