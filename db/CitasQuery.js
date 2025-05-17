@@ -1,0 +1,98 @@
+import {config} from '../config.js';
+
+/**
+ * Carga la lista de los Citas
+ */
+const listarTodosCitasQuery = () => {
+    // Una promesa es una forma de que siempre se devuelva un resultado al quien llama (sea error o éxito)
+    // Si la consulta no genera error, entonces resuelve/cumple la promesa con el resultado
+    // Si hay algun error entonces rechaza la consulta e informa la razón 
+    return new Promise((resolve, reject) => {
+        config.query('SELECT * FROM Citas', (err, filas) => {
+            // Si genera error, mostramos en la consola que es lo que falla
+            if (err) {
+                console.log(err);
+                reject(err);
+            } else {
+                // Si no hay error, devolvemos los datos de la tabla 
+                resolve(filas.rows);
+            }
+        });
+    });
+};
+
+/**
+ * Buscar un Citas por su ID (llave primaria)
+ */
+const listarCitasPorIdQuery = (id_Citas) => {
+    return new Promise((resolve, reject) => {
+        config.query('SELECT * FROM Citas WHERE id_Citas = ? LIMIT 1', [id_Citas], (err, filas) => {
+            if (err) {
+                console.log(err);
+                reject(err);
+            } else {
+                resolve(filas.rows);
+            }
+        });
+    });
+};
+
+
+/**
+ * Guardar Citas
+ */
+const crearCitasQuery = async (Citas) => {
+    const { id_Citas, Citas } = Citas;
+    return new Promise((resolve, reject) => {
+        const sql = 'INSERT INTO Citas (nombres) VALUES (?)';
+        config.query(sql, [id_calificaciones, Citas], (err, resultado) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(resultado.rows);
+            }
+        });
+    });
+};
+
+/**
+ * Actualizar un Citas por su ID
+ */
+const actualizarCitasQuery = (id_Citas, Citas) => {
+    const { nombres } = Citas;
+    return new Promise((resolve, reject) => {
+        const sql = 'UPDATE Citas SET nombres = ?, WHERE id_calificacion = ?';
+        config.query(sql, [nombres, id_Citas], (err, resultado) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(resultado.rows);
+            }
+        });
+    });
+};
+
+/**
+ * Eliminar un Citas por su ID
+ */
+const eliminarCitasQuery = (id_Citas) => {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM Citas WHERE id_Citas = ?';
+        config.query(sql, [id_Citas], (err, resultado) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(resultado.rows);
+            }
+        });
+    });
+};
+
+// Exportar todas las funciones definidas en este archivo
+export {
+    listarTodosCitasQuery,
+    listarCitasPorIdQuery,
+    crearCitasQuery,
+    actualizarCitasQuery,
+    eliminarCitasQuery   
+}

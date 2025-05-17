@@ -1,11 +1,11 @@
-# 📚 API Gestiom Academica
+# 📚 API Gestión para Consultorio Médico
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-Una API RESTful moderna para gestionar un sistema de biblioteca, construida con Node.js, Express y MySQL.
+Una API RESTful moderna para Gestión para Consultorio Médico, construida con Node.js, Express y MySQL.
 
 ## 🚀 Características
 
@@ -18,7 +18,7 @@ Una API RESTful moderna para gestionar un sistema de biblioteca, construida con 
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/Daniel-S-I-O/API-gestion_academica-2025.git
+   git clone https://github.com/Daniel-S-I-O/Examen_final_BD.git
    cd api-biblioteca-bd-2025
    ```
 
