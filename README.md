@@ -44,57 +44,39 @@ Una API RESTful moderna para Gestión para Consultorio Médico, construida con N
 
 ## 🔌 Endpoints de la API
 
-### estudiantes
+### Endpoints por recurso
 
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET    | /estudiantes  | Obtener todos los estudiantes |
-| GET    | /estudiantes/:id | Obtener estudiantes por ID |
-| POST   | /estudiantes  | Crear nuevo estudiantes |
-| PUT    | /estudiantes/:id | Actualizar un estudiantes |
-| DELETE | /estudiantes/:id | Eliminar un estudiantes |
+### 🧑‍🤝‍🧑 Pacientes (`/api/patients`)
 
-### profesores
+- `GET /api/patients` → Listar todos los pacientes
+- `GET /api/patients/:id` → Obtener un paciente por ID
+- `POST /api/patients` → Crear nuevo paciente
+- `PUT /api/patients/:id` → Actualizar paciente
+- `DELETE /api/patients/:id` → Eliminar paciente
 
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET    | /profesores | Obtener todos los profesores |
-| GET    | /profesores/:id | Obtener profesores por ID |
-| POST   | /profesores  | Crear nuevo profesor |
-| PUT    | /profesores/:id | Actualizar un profesor |
-| DELETE | /profesores/:id | Eliminar un profesor |
+### 🧑‍⚕️ Médicos (`/api/doctors`)
 
+- `GET /api/doctors` → Listar todos los médicos
+- `GET /api/doctors/:id` → Obtener un médico por ID
+- `POST /api/doctors` → Crear nuevo médico
+- `PUT /api/doctors/:id` → Actualizar médico
+- `DELETE /api/doctors/:id` → Eliminar médico
 
-### inscripciones
+### 📆 Citas (`/api/appointments`)
 
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET    | /inscripciones | Obtener todos los inscrip |
-| GET    | /inscripciones/:id | Obtener inscrip por ID |
-| POST   | /inscripciones  | Crear nuevo inscrip |
-| PUT    | /inscripciones/:id | Actualizar un inscrip |
-| DELETE | /inscripciones/:id | Eliminar un inscrip |
+- `GET /api/appointments` → Listar todas las citas
+- `GET /api/appointments/:id` → Obtener una cita por ID
+- `POST /api/appointments` → Crear nueva cita
+- `PUT /api/appointments/:id` → Actualizar cita
+- `DELETE /api/appointments/:id` → Eliminar cita
 
-### cursos
+### 📝 Consultas Médicas (`/api/consultations`)
 
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET    | /cursos | Obtener todos los cursos |
-| GET    | /cursos/:id | Obtener curso por ID |
-| POST   | /cursos  | Crear nuevo curso |
-| PUT    | /cursos/:id | Actualizar un curso |
-| DELETE | /cursos/:id | Eliminar un curso |
-
-
-### calificaciones
-
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET    | /calificaciones | Obtener todas las calificaciones |
-| GET    | /calificaciones/:id | Obtener calificaciones por ID |
-| POST   | /calificiones  | Crear nuevo calificacion |
-| PUT    | /calificiones/:id | Actualizar un calificacion |
-| DELETE | /calificiones/:id | Eliminar un calificacion |
+- `GET /api/consultations` → Listar todas las consultas
+- `GET /api/consultations/:id` → Obtener una consulta por ID
+- `POST /api/consultations` → Crear nueva consulta
+- `PUT /api/consultations/:id` → Actualizar consulta
+- `DELETE /api/consultations/:id` → Eliminar consulta
 
 
 ## 📦 Estructura del Proyecto
