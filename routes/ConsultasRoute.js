@@ -11,9 +11,9 @@ import {
 const ConsultasRouter = Router();
 
 ConsultasRouter.get('/', listarTodosConsultas);
-ConsultasRouter.get('/:id', listarConsultasPorId);
+ConsultasRouter.get('/:id_Consultas', listarConsultasPorId);
 ConsultasRouter.post('/', crearConsultas);
-ConsultasRouter.put('/:id', actualizarConsultas);
-ConsultasRouter.delete('/:id', eliminarConsultas);
+ConsultasRouter.put('/:id_Consultas', actualizarConsultas);
+ConsultasRouter.delete('/:id_Consultas', eliminarConsultas);
 
 export default ConsultasRouter;

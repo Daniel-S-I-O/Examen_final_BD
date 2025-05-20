@@ -44,7 +44,7 @@ import {
   const crearConsultas = async (req, res) => {
     console.log(req.body)
     try {
-        const datoscursos = req.body;
+        const datosConsultas = req.body;
         const resultado = await crearConsultasQuery(datosConsultas);
         res.json({ mensaje: 'Consulta creado con éxito', id_Consultas: resultado.insertId });
     } catch (error) {
@@ -57,8 +57,8 @@ import {
    */
   const actualizarConsultas = async (req, res) => {
     try {
-        const id = req.params.id_curso;
-        const datoscursos = req.body;
+        const id = req.params.id_Consultas;
+        const datosConsultas = req.body;
         const resultado = await actualizarConsultasQuery(id_Consultas, datosConsultas);
         if (resultado.affectedRows > 0) {
             res.json({ mensaje: 'Consultas actualizado con éxito', id: id_Consultas });
@@ -75,7 +75,7 @@ import {
    */
   const eliminarConsultas = async (req, res) => {
     try {
-        const id_curso = req.params.id_curso;
+        const id_Consultas = req.params.id_Consultas;
         const resultado = await eliminarConsultasQuery(id_Consultas);
         if (resultado.affectedRows > 0) {
             res.json({ mensaje: 'Consultas eliminado con éxito' });
