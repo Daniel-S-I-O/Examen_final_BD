@@ -28,10 +28,10 @@ import {
    * @param {*} res 
    */
   
-  const listarcitasPorId = async (req, res) => { 
+  const listarCitasPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
-      const Citas = await listarCitasPorIdQuery(req.params.id_citas);
+      const Citas = await listarCitasPorIdQuery(req.params.id_Citas);
       res.json(Citas);
     } catch (error) {
       res.status(500).send(error);
@@ -41,12 +41,12 @@ import {
   /**
    * Crear un Citas
    */
-  const crearcitas = async (req, res) => {
+  const crearCitas = async (req, res) => {
     console.log(req.body)
     try {
-        const datoscitas = req.body;
-        const resultado = await crearCitasQuery(datoscitas);
-        res.json({ mensaje: 'Citas creado con éxito', id_cita: resultado.insertId });
+        const datosCitas = req.body;
+        const resultado = await crearCitasQuery(datosCitas);
+        res.json({ mensaje: 'Citas creado con éxito', id_Cita: resultado.insertId });
     } catch (error) {
         res.status(500).send(error);
     }
@@ -55,13 +55,13 @@ import {
   /**
    * Actualizar los datos de un Citas
    */
-  const actualizarcitas = async (req, res) => {
+  const actualizarCitas = async (req, res) => {
     try {
-        const id_citas = req.params.id;
-        const datoscitas = req.body;
-        const resultado = await actualizarCitasQuery(id_citas, datoscitas);
+        const id_Citas = req.params.id;
+        const datosCitas = req.body;
+        const resultado = await actualizarCitasQuery(id_Citas, datosCitas);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Citas actualizado con éxito', id: id_citas });
+            res.json({ mensaje: 'Citas actualizado con éxito', id: id_Citas });
         } else {
             res.status(404).json({ mensaje: 'Citas no encontrado' });
         }
@@ -73,9 +73,9 @@ import {
   /**
    * Eliminar un Citas
    */
-  const eliminarcitas = async (req, res) => {
+  const eliminarCitas = async (req, res) => {
     try {
-        const id = req.params.id_citas;
+        const id = req.params.id_Citas;
         const resultado = await eliminarCitasQuery(id);
         if (resultado.affectedRows > 0) {
             res.json({ mensaje: 'Citas eliminado con éxito' });
