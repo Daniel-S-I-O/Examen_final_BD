@@ -88,9 +88,9 @@ import {
   };
   
   export {
-    listarTodosCitasQuery,
-    listarCitasPorIdQuery,
-    crearCitasQuery,
-    actualizarCitasQuery,
-    eliminarCitasQuery
-  };
+  listarTodosCitas,
+  listarCitasPorId,
+  crearCitas,
+  actualizarCitas,
+  eliminarCitas
+};
