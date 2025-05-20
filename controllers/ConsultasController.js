@@ -28,7 +28,7 @@ import {
    * @param {*} res 
    */
   
-  const listarcursosPorId = async (req, res) => { 
+  const listarConsultasPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
       const Consultas = await listarConsultasPorIdQuery(req.params.id);

@@ -28,7 +28,7 @@ import {
    * @param {*} res 
    */
   
-  const listaresMedicosPorId = async (req, res) => { 
+  const listarMedicosPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
       const Medicos = await listarMedicosPorIdQuery(req.params.id);
