@@ -88,9 +88,9 @@ import {
   };
   
   export {
-    listarTodosPascientesQuery,
-    listarPascientesPorIdQuery,
-    crearPascientesQuery,
-    actualizarPascientesQuery,
-    eliminarPascientesQuery
+    listarTodosPascientes,
+    listarPascientesPorId,
+    crearPascientes,
+    actualizarPascientes,
+    eliminarPascientes
   };

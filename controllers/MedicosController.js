@@ -88,9 +88,9 @@ import {
   };
   
   export {
-    listarTodosMedicosQuery,
-    listarMedicosPorIdQuery,
-    crearMedicosQuery,
-    actualizarMedicosQuery,
-    eliminarMedicosQuery
+    listarTodosMedicos,
+    listarMedicosPorId,
+    crearMedicos,
+    actualizarMedicos,
+    eliminarMedicos
   };

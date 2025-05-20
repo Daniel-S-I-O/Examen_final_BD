@@ -88,9 +88,9 @@ import {
   };
   
   export {
-    listarTodosConsultasQuery,
-    listarConsultasPorIdQuery,
-    crearConsultasQuery,
-    actualizarConsultasQuery,
-    eliminarConsultasQuery
+    listarTodosConsultas,
+    listarConsultasPorId,
+    crearConsultas,
+    actualizarConsultas,
+    eliminarConsultas
   };
