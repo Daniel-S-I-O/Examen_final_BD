@@ -24,7 +24,7 @@ app.use(cors())
 
 //Usar las rutas
 app.use('/Citas', CitasRoute); 
-app.use('/Consultas', consultasRoute); 
+app.use('/Consultas', ConsultasRoute); 
 app.use('/Medicos', MedicosRoute); 
 app.use('/Pascientes', PascientesRoute);
 const port = process.env.PORT || 3000
