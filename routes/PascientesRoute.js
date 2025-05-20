@@ -8,7 +8,7 @@ import {
     eliminarpPascientes
 } from '../controllers/PascientesController.js';
 
-const ProfesoresRouter = Router();
+const PascientesRouter = Router();
 
 PascientesRouter.get('/', listarTodosPascientes);
 PascientesRouter.get('/:id_profesor', listarPascientesPorId);
