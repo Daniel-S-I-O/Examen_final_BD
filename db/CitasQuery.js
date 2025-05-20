@@ -42,10 +42,10 @@ const listarCitasPorIdQuery = (id_Citas) => {
  * Guardar Citas
  */
 const crearCitasQuery = async (Citas) => {
-    const { id_Citas, Citas } = Citas;
+    const { nombres } = Citas;
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO Citas (nombres) VALUES (?)';
-        config.query(sql, [id_calificaciones, Citas], (err, resultado) => {
+        config.query(sql, [nombres], (err, resultado) => {
             if (err) {
                 reject(err);
             } else {
