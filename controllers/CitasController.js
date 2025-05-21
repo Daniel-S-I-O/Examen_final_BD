@@ -4,7 +4,7 @@ import {
     crearcitasQuery,
     actualizarcitasQuery,
     eliminarcitasQuery
-  } from "../db/citasQuery.js";
+  } from "../db/CitasQuery.js";
   
   /**
    * Obtener todos los citas de la base de datos

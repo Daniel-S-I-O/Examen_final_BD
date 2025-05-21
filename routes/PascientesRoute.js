@@ -6,7 +6,7 @@ import {
     crearpascientes,
     actualizarpascientes,
     eliminarpascientes
-} from '../controllers/pascientesController.js';
+} from '../controllers/PascientesController.js';
 
 const pascientesRouter = Router();
 

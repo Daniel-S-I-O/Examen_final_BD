@@ -4,7 +4,7 @@ import {
     crearconsultasQuery,
     actualizarconsultasQuery,
     eliminarconsultasQuery
-  } from "../db/consultasQuery.js";
+  } from "../db/ConsultasQuery.js";
   
   /**
    * Obtener todos los consultas de la base de datos

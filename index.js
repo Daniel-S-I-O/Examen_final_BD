@@ -8,13 +8,13 @@ dotenv.config()
 const app = express()
 
 // Importar las rutas de los estudiantes
-import citasRoute from './routes/citasRoute.js';
+import citasRoute from './routes/CitasRoute.js';
 // Importar las rutas de los profesores
-import consultasRoute from './routes/consultasRoute.js'
+import consultasRoute from './routes/ConsultasRoute.js'
 // Importar las rutas de los cursos
-import medicosRoute from './routes/medicosRoute.js'
+import medicosRoute from './routes/MedicosRoute.js'
 // Importar las rutas de calificaciones
-import pascientesRoute from './routes/pascientesRoute.js'
+import pascientesRoute from './routes/PascientesRoute.js'
 
 
 app.use(express.json())

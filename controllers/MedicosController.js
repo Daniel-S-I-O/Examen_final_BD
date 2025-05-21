@@ -4,7 +4,7 @@ import {
     crearmedicosQuery,
     actualizarmedicosQuery,
     eliminarmedicosQuery
-  } from "../db/medicosQuery.js";
+  } from "../db/MedicosQuery.js";
   
   /**
    * Obtener todos los eMedicos de la base de datos

@@ -6,7 +6,7 @@ import {
     crearmedicos,
     actualizarmedicos,
     eliminarmedicos
-} from '../controllers/medicosController.js';
+} from '../controllers/MedicosController.js';
 
 const medicosRouter = Router();
 

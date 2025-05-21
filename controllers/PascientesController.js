@@ -4,7 +4,7 @@ import {
     crearpascientesQuery,
     actualizarpascientesQuery,
     eliminarpascientesQuery
-  } from "../db/pascientesQuery.js";
+  } from "../db/PascientesQuery.js";
   
   /**
    * Obtener todos los pascientes de la base de datos

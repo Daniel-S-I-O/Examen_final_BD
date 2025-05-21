@@ -6,7 +6,7 @@ import {
     crearconsultas,
     actualizarconsultas,
     eliminarconsultas
-} from '../controllers/consultasController.js';
+} from '../controllers/ConsultasController.js';
 
 const consultasRouter = Router();
 

@@ -6,7 +6,7 @@ import {
     crearcitas,
     actualizarcitas,
     eliminarcitas
-} from '../controllers/citasController.js';
+} from '../controllers/CitasController.js';
 
 const citasRouter = Router();
 
