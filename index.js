@@ -8,13 +8,13 @@ dotenv.config()
 const app = express()
 
 // Importar las rutas de los estudiantes
-import CitasRoute from './routes/CitasRoute.js';
+import citasRoute from './routes/citasRoute.js';
 // Importar las rutas de los profesores
-import ConsultasRoute from './routes/ConsultasRoute.js'
+import consultasRoute from './routes/consultasRoute.js'
 // Importar las rutas de los cursos
-import MedicosRoute from './routes/MedicosRoute.js'
+import medicosRoute from './routes/medicosRoute.js'
 // Importar las rutas de calificaciones
-import PascientesRoute from './routes/PascientesRoute.js'
+import pascientesRoute from './routes/pascientesRoute.js'
 
 
 app.use(express.json())
@@ -23,10 +23,10 @@ app.use(cors())
 
 
 //Usar las rutas
-app.use('/Citas', CitasRoute); 
-app.use('/Consultas', ConsultasRoute); 
-app.use('/Medicos', MedicosRoute); 
-app.use('/Pascientes', PascientesRoute);
+app.use('/citas', citasRoute); 
+app.use('/consultas', consultasRoute); 
+app.use('/medicos', medicosRoute); 
+app.use('/pascientes', pascientesRoute);
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {

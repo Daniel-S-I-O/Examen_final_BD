@@ -1,69 +1,69 @@
 import {
-    listarTodosPascientesQuery,
-    listarPascientesPorIdQuery,
-    crearPascientesQuery,
-    actualizarPascientesQuery,
-    eliminarPascientesQuery
-  } from "../db/PascientesQuery.js";
+    listarTodospascientesQuery,
+    listarpascientesPorIdQuery,
+    crearpascientesQuery,
+    actualizarpascientesQuery,
+    eliminarpascientesQuery
+  } from "../db/pascientesQuery.js";
   
   /**
-   * Obtener todos los Pascientes de la base de datos
+   * Obtener todos los pascientes de la base de datos
    */
-  const listarTodosPascientes = async (req, res) => {
+  const listarTodospascientes = async (req, res) => {
     // Un bloque try-catch  sirve para validar si la peticion se obtiene o se devuelve un error
     // Try -> intentar
     // Catch -> capturar el error
     try {
       //  Ejecutar la consulta en la base de datos
-      const Pascientes = await listarTodosPascientesQuery();
-      res.json(Pascientes);
+      const pascientes = await listarTodospascientesQuery();
+      res.json(pascientes);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Obtener el Pascientes con el ID especificado en la query / url
+   * Obtener el pascientes con el ID especificado en la query / url
    * @param {*} req 
    * @param {*} res 
    */
   
-  const listarPascientesPorId = async (req, res) => { 
+  const listarpascientesPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
-      const Pascientes = await listarPascientesPorIdQuery(req.params.id_Pascientes);
-      res.json(Pascientes);
+      const pascientes = await listarpascientesPorIdQuery(req.params.id_pascientes);
+      res.json(pascientes);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Crear un Pascientes
+   * Crear un pascientes
    */
-  const crearPascientes = async (req, res) => {
+  const crearpascientes = async (req, res) => {
     console.log(req.body)
     try {
-        const datosPascientes = req.body;
-        const resultado = await crearPascientesQuery(datosPascientes);
-        res.json({ mensaje: 'Pascientes creado con éxito', id_Pascientes: resultado.insertId });
+        const datospascientes = req.body;
+        const resultado = await crearpascientesQuery(datospascientes);
+        res.json({ mensaje: 'pascientes creado con éxito', id_pascientes: resultado.insertId });
     } catch (error) {
         res.status(500).send(error);
     }
   };
   
   /**
-   * Actualizar los datos de un Pascientes
+   * Actualizar los datos de un pascientes
    */
-  const actualizarPascientes = async (req, res) => {
+  const actualizarpascientes = async (req, res) => {
     try {
-        const id_Pascientes = req.params.id_Pascientes;
-        const datosPascientes = req.body;
-        const resultado = await actualizarPascientesQuery(id_Pascientes, datosPascientes);
+        const id_pascientes = req.params.id_pascientes;
+        const datospascientes = req.body;
+        const resultado = await actualizarpascientesQuery(id_pascientes, datospascientes);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Pascientes actualizado con éxito', id: id_Pascientes });
+            res.json({ mensaje: 'pascientes actualizado con éxito', id: id_pascientes });
         } else {
-            res.status(404).json({ mensaje: 'Pascientes no encontrado' });
+            res.status(404).json({ mensaje: 'pascientes no encontrado' });
         }
     } catch (error) {
         res.status(500).send(error);
@@ -71,26 +71,26 @@ import {
   };
   
   /**
-   * Eliminar un Pascientes
+   * Eliminar un pascientes
    */
-  const eliminarPascientes = async (req, res) => {
+  const eliminarpascientes = async (req, res) => {
     try {
-        const id_Pascientes = req.params.id;
-        const resultado = await eliminarPascientesQuery(id_Pascientes);
+        const id_pascientes = req.params.id;
+        const resultado = await eliminarpascientesQuery(id_pascientes);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Pascientes eliminado con éxito' });
+            res.json({ mensaje: 'pascientes eliminado con éxito' });
         } else {
-            res.status(404).json({ mensaje: 'Pascientes no encontrado' });
+            res.status(404).json({ mensaje: 'pascientes no encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error al eliminar el Pascientes', error: error.message });
+        res.status(500).json({ mensaje: 'Error al eliminar el pascientes', error: error.message });
     }
   };
   
   export {
-    listarTodosPascientes,
-    listarPascientesPorId,
-    crearPascientes,
-    actualizarPascientes,
-    eliminarPascientes
+    listarTodospascientes,
+    listarpascientesPorId,
+    crearpascientes,
+    actualizarpascientes,
+    eliminarpascientes
   };

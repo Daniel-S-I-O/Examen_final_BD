@@ -1,69 +1,69 @@
 import {
-    listarTodosMedicosQuery,
-    listarMedicosPorIdQuery,
-    crearMedicosQuery,
-    actualizarMedicosQuery,
-    eliminarMedicosQuery
-  } from "../db/MedicosQuery.js";
+    listarTodosmedicosQuery,
+    listarmedicosPorIdQuery,
+    crearmedicosQuery,
+    actualizarmedicosQuery,
+    eliminarmedicosQuery
+  } from "../db/medicosQuery.js";
   
   /**
    * Obtener todos los eMedicos de la base de datos
    */
-  const listarTodosMedicos = async (req, res) => {
+  const listarTodosmedicos = async (req, res) => {
     // Un bloque try-catch  sirve para validar si la peticion se obtiene o se devuelve un error
     // Try -> intentar
     // Catch -> capturar el error
     try {
       //  Ejecutar la consulta en la base de datos
-      const Medicos = await listarTodosMedicosQuery();
-      res.json(Medicos);
+      const medicos = await listarTodosmedicosQuery();
+      res.json(medicos);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Obtener el Medicos con el ID especificado en la query / url
+   * Obtener el medicos con el ID especificado en la query / url
    * @param {*} req 
    * @param {*} res 
    */
   
-  const listarMedicosPorId = async (req, res) => { 
+  const listarmedicosPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
-      const Medicos = await listarMedicosPorIdQuery(req.params.id);
-      res.json(Medicos);
+      const medicos = await listarmedicosPorIdQuery(req.params.id);
+      res.json(medicos);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Crear un Medicos
+   * Crear un medicos
    */
-  const crearMedicos = async (req, res) => {
+  const crearmedicos = async (req, res) => {
     console.log(req.body)
     try {
-        const datosMedicos = req.body;
-        const resultado = await crearMedicosQuery(datosMedicos);
-        res.json({ mensaje: 'Medicos creado con éxito', id: resultado.insertId });
+        const datosmedicos = req.body;
+        const resultado = await crearmedicosQuery(datosmedicos);
+        res.json({ mensaje: 'medicos creado con éxito', id: resultado.insertId });
     } catch (error) {
         res.status(500).send(error);
     }
   };
   
   /**
-   * Actualizar los datos de un Medicos
+   * Actualizar los datos de un medicos
    */
-  const actualizarMedicos = async (req, res) => {
+  const actualizarmedicos = async (req, res) => {
     try {
-        const id = req.params.id_Medicos;
-        const datosMedicos = req.body;
-        const resultado = await actualizarMedicosQuery(id_Medicos, datosMedicos);
+        const id = req.params.id_medicos;
+        const datosmedicos = req.body;
+        const resultado = await actualizarmedicosQuery(id_medicos, datosmedicos);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Medicos actualizado con éxito', id: id_Medicos });
+            res.json({ mensaje: 'medicos actualizado con éxito', id: id_medicos });
         } else {
-            res.status(404).json({ mensaje: 'Medicos no encontrado' });
+            res.status(404).json({ mensaje: 'medicos no encontrado' });
         }
     } catch (error) {
         res.status(500).send(error);
@@ -71,26 +71,26 @@ import {
   };
   
   /**
-   * Eliminar un Medicos
+   * Eliminar un medicos
    */
-  const eliminarMedicos = async (req, res) => {
+  const eliminarmedicos = async (req, res) => {
     try {
-        const id_Medicos = req.params.id_Medicos;
-        const resultado = await eliminarMedicosQuery(id_Medicos);
+        const id_medicos = req.params.id_medicos;
+        const resultado = await eliminarmedicosQuery(id_medicos);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Medicos eliminado con éxito' });
+            res.json({ mensaje: 'medicos eliminado con éxito' });
         } else {
-            res.status(404).json({ mensaje: 'Medicos no encontrado' });
+            res.status(404).json({ mensaje: 'medicos no encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error al eliminar el Medicos', error: error.message });
+        res.status(500).json({ mensaje: 'Error al eliminar el medicos', error: error.message });
     }
   };
   
   export {
-    listarTodosMedicos,
-    listarMedicosPorId,
-    crearMedicos,
-    actualizarMedicos,
-    eliminarMedicos
+    listarTodosmedicos,
+    listarmedicosPorId,
+    crearmedicos,
+    actualizarmedicos,
+    eliminarmedicos
   };

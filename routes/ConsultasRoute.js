@@ -1,19 +1,19 @@
 import { Router } from 'express';
 
 import {
-    listarTodosConsultas,
-    listarConsultasPorId,
-    crearConsultas,
-    actualizarConsultas,
-    eliminarConsultas
-} from '../controllers/ConsultasController.js';
+    listarTodosconsultas,
+    listarconsultasPorId,
+    crearconsultas,
+    actualizarconsultas,
+    eliminarconsultas
+} from '../controllers/consultasController.js';
 
-const ConsultasRouter = Router();
+const consultasRouter = Router();
 
-ConsultasRouter.get('/', listarTodosConsultas);
-ConsultasRouter.get('/:id_Consultas', listarConsultasPorId);
-ConsultasRouter.post('/', crearConsultas);
-ConsultasRouter.put('/:id_Consultas', actualizarConsultas);
-ConsultasRouter.delete('/:id_Consultas', eliminarConsultas);
+consultasRouter.get('/', listarTodosconsultas);
+consultasRouter.get('/:id_consultas', listarconsultasPorId);
+consultasRouter.post('/', crearconsultas);
+consultasRouter.put('/:id_consultas', actualizarconsultas);
+consultasRouter.delete('/:id_consultas', eliminarconsultas);
 
-export default ConsultasRouter;
+export default consultasRouter;

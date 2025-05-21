@@ -1,19 +1,19 @@
 import { Router } from 'express';
 
 import {
-    listarTodosPascientes,
-    listarPascientesPorId,
-    crearPascientes,
-    actualizarPascientes,
-    eliminarPascientes
-} from '../controllers/PascientesController.js';
+    listarTodospascientes,
+    listarpascientesPorId,
+    crearpascientes,
+    actualizarpascientes,
+    eliminarpascientes
+} from '../controllers/pascientesController.js';
 
-const PascientesRouter = Router();
+const pascientesRouter = Router();
 
-PascientesRouter.get('/', listarTodosPascientes);
-PascientesRouter.get('/:id_profesor', listarPascientesPorId);
-PascientesRouter.post('/', crearPascientes);
-PascientesRouter.put('/:id_profesor', actualizarPascientes);
-PascientesRouter.delete('/:id_profesor', eliminarPascientes);
+pascientesRouter.get('/', listarTodospascientes);
+pascientesRouter.get('/:id_pascientes', listarpascientesPorId);
+pascientesRouter.post('/', crearpascientes);
+pascientesRouter.put('/:id_pascientes', actualizarpascientes);
+pascientesRouter.delete('/:id_pascientes', eliminarpascientes);
 
-export default PascientesRouter;
+export default pascientesRouter;

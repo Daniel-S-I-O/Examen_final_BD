@@ -1,69 +1,69 @@
 import {
-    listarTodosConsultasQuery,
-    listarConsultasPorIdQuery,
-    crearConsultasQuery,
-    actualizarConsultasQuery,
-    eliminarConsultasQuery
-  } from "../db/ConsultasQuery.js";
+    listarTodosconsultasQuery,
+    listarconsultasPorIdQuery,
+    crearconsultasQuery,
+    actualizarconsultasQuery,
+    eliminarconsultasQuery
+  } from "../db/consultasQuery.js";
   
   /**
-   * Obtener todos los Consultas de la base de datos
+   * Obtener todos los consultas de la base de datos
    */
-  const listarTodosConsultas = async (req, res) => {
+  const listarTodosconsultas = async (req, res) => {
     // Un bloque try-catch  sirve para validar si la peticion se obtiene o se devuelve un error
     // Try -> intentar
     // Catch -> capturar el error
     try {
       //  Ejecutar la consulta en la base de datos
-      const Consultas = await listarTodosConsultasQuery();
-      res.json(Consultas);
+      const consultas = await listarTodosconsultasQuery();
+      res.json(consultas);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Obtener el Consultas con el ID especificado en la query / url
+   * Obtener el consultas con el ID especificado en la query / url
    * @param {*} req 
    * @param {*} res 
    */
   
-  const listarConsultasPorId = async (req, res) => { 
+  const listarconsultasPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
-      const Consultas = await listarConsultasPorIdQuery(req.params.id);
-      res.json(Consultas);
+      const consultas = await listarconsultasPorIdQuery(req.params.id);
+      res.json(consultas);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Crear un Consultas
+   * Crear un consultas
    */
-  const crearConsultas = async (req, res) => {
+  const crearconsultas = async (req, res) => {
     console.log(req.body)
     try {
-        const datosConsultas = req.body;
-        const resultado = await crearConsultasQuery(datosConsultas);
-        res.json({ mensaje: 'Consulta creado con éxito', id_Consultas: resultado.insertId });
+        const datosconsultas = req.body;
+        const resultado = await crearconsultasQuery(datosconsultas);
+        res.json({ mensaje: 'Consulta creado con éxito', id_consultas: resultado.insertId });
     } catch (error) {
         res.status(500).send(error);
     }
   };
   
   /**
-   * Actualizar los datos de un Consultas
+   * Actualizar los datos de un consultas
    */
-  const actualizarConsultas = async (req, res) => {
+  const actualizarconsultas = async (req, res) => {
     try {
         const id = req.params.id_Consultas;
-        const datosConsultas = req.body;
-        const resultado = await actualizarConsultasQuery(id_Consultas, datosConsultas);
+        const datosconsultas = req.body;
+        const resultado = await actualizarconsultasQuery(id_consultas, datosconsultas);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Consultas actualizado con éxito', id: id_Consultas });
+            res.json({ mensaje: 'consultas actualizado con éxito', id: id_consultas });
         } else {
-            res.status(404).json({ mensaje: 'Consultas no encontrado' });
+            res.status(404).json({ mensaje: 'consultas no encontrado' });
         }
     } catch (error) {
         res.status(500).send(error);
@@ -71,26 +71,26 @@ import {
   };
   
   /**
-   * Eliminar un Consultas
+   * Eliminar un consultas
    */
-  const eliminarConsultas = async (req, res) => {
+  const eliminarconsultas = async (req, res) => {
     try {
-        const id_Consultas = req.params.id_Consultas;
-        const resultado = await eliminarConsultasQuery(id_Consultas);
+        const id_consultas = req.params.id_consultas;
+        const resultado = await eliminarconsultasQuery(id_consultas);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Consultas eliminado con éxito' });
+            res.json({ mensaje: 'consultas eliminado con éxito' });
         } else {
-            res.status(404).json({ mensaje: 'Consultas no encontrado' });
+            res.status(404).json({ mensaje: 'consultas no encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error al eliminar el Consultas', error: error.message });
+        res.status(500).json({ mensaje: 'Error al eliminar el consultas', error: error.message });
     }
   };
   
   export {
-    listarTodosConsultas,
-    listarConsultasPorId,
-    crearConsultas,
-    actualizarConsultas,
-    eliminarConsultas
+    listarTodosconsultas,
+    listarconsultasPorId,
+    crearconsultas,
+    actualizarconsultas,
+    eliminarconsultas
   };

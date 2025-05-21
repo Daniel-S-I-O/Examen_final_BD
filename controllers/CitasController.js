@@ -1,69 +1,69 @@
 import {
-    listarTodosCitasQuery,
-    listarCitasPorIdQuery,
-    crearCitasQuery,
-    actualizarCitasQuery,
-    eliminarCitasQuery
-  } from "../db/CitasQuery.js";
+    listarTodoscitasQuery,
+    listarcitasPorIdQuery,
+    crearcitasQuery,
+    actualizarcitasQuery,
+    eliminarcitasQuery
+  } from "../db/citasQuery.js";
   
   /**
-   * Obtener todos los Citas de la base de datos
+   * Obtener todos los citas de la base de datos
    */
-  const listarTodosCitas = async (req, res) => {
+  const listarTodoscitas = async (req, res) => {
     // Un bloque try-catch  sirve para validar si la peticion se obtiene o se devuelve un error
     // Try -> intentar
     // Catch -> capturar el error
     try {
       //  Ejecutar la consulta en la base de datos
-      const Citas = await listarTodosCitasQuery();
-      res.json(Citas);
+      const citas = await listarTodoscitasQuery();
+      res.json(citas);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Obtener el Citas con el ID especificado en la query / url
+   * Obtener el citas con el ID especificado en la query / url
    * @param {*} req 
    * @param {*} res 
    */
   
-  const listarCitasPorId = async (req, res) => { 
+  const listarcitasPorId = async (req, res) => { 
     try {
       //  Ejecutar la consulta en la base de datos
-      const Citas = await listarCitasPorIdQuery(req.params.id_Citas);
-      res.json(Citas);
+      const citas = await listarcitasPorIdQuery(req.params.id_citas);
+      res.json(citas);
     } catch (error) {
       res.status(500).send(error);
     }
   };
   
   /**
-   * Crear un Citas
+   * Crear un citas
    */
-  const crearCitas = async (req, res) => {
+  const crearcitas = async (req, res) => {
     console.log(req.body)
     try {
-        const datosCitas = req.body;
-        const resultado = await crearCitasQuery(datosCitas);
-        res.json({ mensaje: 'Citas creado con éxito', id_Cita: resultado.insertId });
+        const datoscitas = req.body;
+        const resultado = await crearcitasQuery(datoscitas);
+        res.json({ mensaje: 'citas creado con éxito', id_cita: resultado.insertId });
     } catch (error) {
         res.status(500).send(error);
     }
   };
   
   /**
-   * Actualizar los datos de un Citas
+   * Actualizar los datos de un citas
    */
-  const actualizarCitas = async (req, res) => {
+  const actualizarcitas = async (req, res) => {
     try {
-        const id_Citas = req.params.id;
-        const datosCitas = req.body;
-        const resultado = await actualizarCitasQuery(id_Citas, datosCitas);
+        const id_citas = req.params.id;
+        const datoscitas = req.body;
+        const resultado = await actualizarcitasQuery(id_citas, datoscitas);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Citas actualizado con éxito', id: id_Citas });
+            res.json({ mensaje: 'citas actualizado con éxito', id: id_citas });
         } else {
-            res.status(404).json({ mensaje: 'Citas no encontrado' });
+            res.status(404).json({ mensaje: 'citas no encontrado' });
         }
     } catch (error) {
         res.status(500).send(error);
@@ -71,26 +71,26 @@ import {
   };
   
   /**
-   * Eliminar un Citas
+   * Eliminar un citas
    */
-  const eliminarCitas = async (req, res) => {
+  const eliminarcitas = async (req, res) => {
     try {
-        const id = req.params.id_Citas;
-        const resultado = await eliminarCitasQuery(id);
+        const id = req.params.id_citas;
+        const resultado = await eliminarcitasQuery(id);
         if (resultado.affectedRows > 0) {
-            res.json({ mensaje: 'Citas eliminado con éxito' });
+            res.json({ mensaje: 'citas eliminado con éxito' });
         } else {
-            res.status(404).json({ mensaje: 'Citas no encontrado' });
+            res.status(404).json({ mensaje: 'citas no encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error al eliminar el Citas', error: error.message });
+        res.status(500).json({ mensaje: 'Error al eliminar el citas', error: error.message });
     }
   };
   
   export {
-    listarTodosCitas,
-    listarCitasPorId,
-    crearCitas,
-    actualizarCitas,
-    eliminarCitas
+    listarTodoscitas,
+    listarcitasPorId,
+    crearcitas,
+    actualizarcitas,
+    eliminarcitas
   };

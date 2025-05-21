@@ -1,19 +1,19 @@
 import { Router } from 'express';
 
 import {
-    listarTodosCitas,
-    listarCitasPorId,
-    crearCitas,
-    actualizarCitas,
-    eliminarCitas
-} from '../controllers/CitasController.js';
+    listarTodoscitas,
+    listarcitasPorId,
+    crearcitas,
+    actualizarcitas,
+    eliminarcitas
+} from '../controllers/citasController.js';
 
-const CitasRouter = Router();
+const citasRouter = Router();
 
-CitasRouter.get('/', listarTodosCitas);
-CitasRouter.get('/:id_Citas', listarCitasPorId);
-CitasRouter.post('/', crearCitas);
-CitasRouter.put('/:id_Citas', actualizarCitas);
-CitasRouter.delete('/:id_Citas', eliminarCitas);
+citasRouter.get('/', listarTodoscitas);
+citasRouter.get('/:id_citas', listarcitasPorId);
+citasRouter.post('/', crearcitas);
+citasRouter.put('/:id_citas', actualizarcitas);
+citasRouter.delete('/:id_citas', eliminarcitas);
 
-export default CitasRouter;
+export default citasRouter;

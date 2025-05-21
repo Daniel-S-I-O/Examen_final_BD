@@ -1,19 +1,19 @@
 import { Router } from 'express';
 
 import {
-    listarTodosMedicos,
-    listarMedicosPorId,
-    crearMedicos,
-    actualizarMedicos,
-    eliminarMedicos
-} from '../controllers/MedicosController.js';
+    listarTodosmedicos,
+    listarmedicosPorId,
+    crearmedicos,
+    actualizarmedicos,
+    eliminarmedicos
+} from '../controllers/medicosController.js';
 
-const MedicosRouter = Router();
+const medicosRouter = Router();
 
-MedicosRouter.get('/', listarTodosMedicos);
-MedicosRouter.get('/:id_estudiante', listarMedicosPorId);
-MedicosRouter.post('/', crearMedicos);
-MedicosRouter.put('/:id_estudiante', actualizarMedicos);
-MedicosRouter.delete('/:id_estudiante', eliminarMedicos);
+medicosRouter.get('/', listarTodosmedicos);
+medicosRouter.get('/:id_medicos', listarmedicosPorId);
+medicosRouter.post('/', crearmedicos);
+medicosRouter.put('/:id_medicos', actualizarmedicos);
+medicosRouter.delete('/:id_medicos', eliminarmedicos);
 
-export default MedicosRouter;
+export default medicosRouter;

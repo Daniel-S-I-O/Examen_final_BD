@@ -3,12 +3,12 @@ import {config} from '../config.js';
 /**
  * Carga la lista de Pascientes
  */
-const listarTodosPascientesQuery = () => {
+const listarTodospascientesQuery = () => {
     // Una promesa es una forma de que siempre se devuelva un resultado al quien llama (sea error o éxito)
     // Si la consulta no genera error, entonces resuelve/cumple la promesa con el resultado
     // Si hay algun error entonces rechaza la consulta e informa la razón 
     return new Promise((resolve, reject) => {
-        config.query('SELECT * FROM Pascientes', (err, filas) => {
+        config.query('SELECT * FROM pascientes', (err, filas) => {
             // Si genera error, mostramos en la consola que es lo que falla
             if (err) {
                 console.log(err);
@@ -24,9 +24,9 @@ const listarTodosPascientesQuery = () => {
 /**
  * Buscar un Pascientes por su ID (llave primaria)
  */
-const listarPascientesPorIdQuery = (id_Pascientes) => {
+const listarpascientesPorIdQuery = (id_pascientes) => {
     return new Promise((resolve, reject) => {
-        config.query('SELECT * FROM Pascientes WHERE id_Pascientes = ? LIMIT 1', [id_Pascientes], (err, filas) => {
+        config.query('SELECT * FROM pascientes WHERE id_Pascientes = ? LIMIT 1', [id_pascientes], (err, filas) => {
             if (err) {
                 console.log(err);
                 reject(err);
@@ -41,10 +41,10 @@ const listarPascientesPorIdQuery = (id_Pascientes) => {
 /**
  * Guardar un nuevo Pascientes
  */
-const crearPascientesQuery = async (Pascientes) => {
-    const { nombre, apellido } = Pascientes;
+const crearpascientesQuery = async (pascientes) => {
+    const { nombre, apellido } = pascientes;
     return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO Pascientes (nombre, apellido) VALUES (?, ?)';
+        const sql = 'INSERT INTO pascientes (nombre, apellido) VALUES (?, ?)';
         config.query(sql, [nombre, apellido], (err, resultado) => {
             if (err) {
                 reject(err);
@@ -58,11 +58,11 @@ const crearPascientesQuery = async (Pascientes) => {
 /**
  * Actualizar un Pascientes por su ID
  */
-const actualizarPascientesQuery = (id_Pascientes, Pascientes) => {
-    const { nombre, apellido } = Pascientes;
+const actualizarpascientesQuery = (id_pascientes, pascientes) => {
+    const { nombre, apellido } = pascientes;
     return new Promise((resolve, reject) => {
-        const sql = 'UPDATE Pascientes SET nombre = ?, apellido = ? WHERE id_Pascientes = ?';
-        config.query(sql, [nombre, apellido, id_Pascientes], (err, resultado) => {
+        const sql = 'UPDATE Pascientes SET nombre = ?, apellido = ? WHERE id_pascientes = ?';
+        config.query(sql, [nombre, apellido, id_pascientes], (err, resultado) => {
             if (err) {
                 reject(err);
             } else {
@@ -75,10 +75,10 @@ const actualizarPascientesQuery = (id_Pascientes, Pascientes) => {
 /**
  * Eliminar un Pascientes por su ID
  */
-const eliminarPascientesQuery = (id_Pascientes) => {
+const eliminarpascientesQuery = (id_pascientes) => {
     return new Promise((resolve, reject) => {
-        const sql = 'DELETE FROM Pascientes WHERE id_profesor = ?';
-        config.query(sql, [id_Pascientes], (err, resultado) => {
+        const sql = 'DELETE FROM pascientes WHERE id_pascientes = ?';
+        config.query(sql, [id_pascientes], (err, resultado) => {
             if (err) {
                 reject(err);
             } else {
@@ -90,9 +90,9 @@ const eliminarPascientesQuery = (id_Pascientes) => {
 
 // Exportar todas las funciones definidas en este archivo
 export {
-    listarTodosPascientesQuery,
-    listarPascientesPorIdQuery,
-    crearPascientesQuery,
-    actualizarPascientesQuery,
-    eliminarPascientesQuery   
+    listarTodospascientesQuery,
+    listarpascientesPorIdQuery,
+    crearpascientesQuery,
+    actualizarpascientesQuery,
+    eliminarpascientesQuery   
 }

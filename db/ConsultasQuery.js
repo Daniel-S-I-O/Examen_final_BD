@@ -3,12 +3,12 @@ import {config} from '../config.js';
 /**
  * Carga la lista de los Consultas
  */
-const listarTodosConsultasQuery = () => {
+const listarTodosconsultasQuery = () => {
     // Una promesa es una forma de que siempre se devuelva un resultado al quien llama (sea error o éxito)
     // Si la consulta no genera error, entonces resuelve/cumple la promesa con el resultado
     // Si hay algun error entonces rechaza la consulta e informa la razón 
     return new Promise((resolve, reject) => {
-        config.query('SELECT * FROM Consultas', (err, filas) => {
+        config.query('SELECT * FROM consultas', (err, filas) => {
             // Si genera error, mostramos en la consola que es lo que falla
             if (err) {
                 console.log(err);
@@ -24,9 +24,9 @@ const listarTodosConsultasQuery = () => {
 /**
  * Buscar un Consultas por su ID (llave primaria)
  */
-const listarConsultasPorIdQuery = (id_Consultas) => {
+const listarconsultasPorIdQuery = (id_consultas) => {
     return new Promise((resolve, reject) => {
-        config.query('SELECT * FROM Consultas WHERE id_Consultas = ? LIMIT 1', [id_Consultas], (err, filas) => {
+        config.query('SELECT * FROM consultas WHERE id_consultas = ? LIMIT 1', [id_consultas], (err, filas) => {
             if (err) {
                 console.log(err);
                 reject(err);
@@ -41,10 +41,10 @@ const listarConsultasPorIdQuery = (id_Consultas) => {
 /**
  * Guardar Consultas
  */
-const crearConsultasQuery = async (Consultas) => {
-    const { nombres } = Consultas;
+const crearconsultasQuery = async (consultas) => {
+    const { nombres } = consultas;
     return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO Consultas (nombres) VALUES (?)';
+        const sql = 'INSERT INTO consultas (nombres) VALUES (?)';
         config.query(sql, [nombres], (err, resultado) => {
             if (err) {
                 reject(err);
@@ -58,11 +58,11 @@ const crearConsultasQuery = async (Consultas) => {
 /**
  * Actualizar un Consultas por su ID
  */
-const actualizarConsultasQuery = (id_Consultas, Consultas) => {
-    const { nombres } = Consultas;
+const actualizarconsultasQuery = (id_consultas, consultas) => {
+    const { nombres } = consultas;
     return new Promise((resolve, reject) => {
-        const sql = 'UPDATE Consultas SET nombres = ?, WHERE id_curso = ?';
-        config.query(sql, [nombres, id_Consultas], (err, resultado) => {
+        const sql = 'UPDATE Consultas SET nombres = ?, WHERE id_consultas = ?';
+        config.query(sql, [nombres, id_consultas], (err, resultado) => {
             if (err) {
                 reject(err);
             } else {
@@ -75,10 +75,10 @@ const actualizarConsultasQuery = (id_Consultas, Consultas) => {
 /**
  * Eliminar un Consultas por su ID
  */
-const eliminarConsultasQuery = (id_Consultas) => {
+const eliminarconsultasQuery = (id_consultas) => {
     return new Promise((resolve, reject) => {
-        const sql = 'DELETE FROM Consultas WHERE id = ?';
-        config.query(sql, [id_Consultas], (err, resultado) => {
+        const sql = 'DELETE FROM consultas WHERE id = ?';
+        config.query(sql, [id_consultas], (err, resultado) => {
             if (err) {
                 reject(err);
             } else {
@@ -90,9 +90,9 @@ const eliminarConsultasQuery = (id_Consultas) => {
 
 // Exportar todas las funciones definidas en este archivo
 export {
-    listarTodosConsultasQuery,
-    listarConsultasPorIdQuery,
-    crearConsultasQuery,
-    actualizarConsultasQuery,
-    eliminarConsultasQuery   
+    listarTodosconsultasQuery,
+    listarconsultasPorIdQuery,
+    crearconsultasQuery,
+    actualizarconsultasQuery,
+    eliminarconsultasQuery   
 }
