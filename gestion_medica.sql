@@ -5,7 +5,7 @@
 -- Dumped from database version 16.8 (Debian 16.8-1.pgdg120+1)
 -- Dumped by pg_dump version 17.4
 
--- Started on 2025-05-20 18:21:58
+-- Started on 2025-05-20 19:30:21
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,12 +19,31 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- TOC entry 5 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: gestion_medica_user
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO gestion_medica_user;
+
+--
+-- TOC entry 3400 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: gestion_medica_user
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 220 (class 1259 OID 16421)
+-- TOC entry 220 (class 1259 OID 16475)
 -- Name: citas; Type: TABLE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -41,7 +60,7 @@ CREATE TABLE public.citas (
 ALTER TABLE public.citas OWNER TO gestion_medica_user;
 
 --
--- TOC entry 219 (class 1259 OID 16420)
+-- TOC entry 219 (class 1259 OID 16474)
 -- Name: citas_id_seq; Type: SEQUENCE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -57,7 +76,7 @@ CREATE SEQUENCE public.citas_id_seq
 ALTER SEQUENCE public.citas_id_seq OWNER TO gestion_medica_user;
 
 --
--- TOC entry 3396 (class 0 OID 0)
+-- TOC entry 3401 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: citas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gestion_medica_user
 --
@@ -66,7 +85,7 @@ ALTER SEQUENCE public.citas_id_seq OWNED BY public.citas.id;
 
 
 --
--- TOC entry 222 (class 1259 OID 16440)
+-- TOC entry 222 (class 1259 OID 16494)
 -- Name: consultas; Type: TABLE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -83,7 +102,7 @@ CREATE TABLE public.consultas (
 ALTER TABLE public.consultas OWNER TO gestion_medica_user;
 
 --
--- TOC entry 221 (class 1259 OID 16439)
+-- TOC entry 221 (class 1259 OID 16493)
 -- Name: consultas_id_seq; Type: SEQUENCE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -99,7 +118,7 @@ CREATE SEQUENCE public.consultas_id_seq
 ALTER SEQUENCE public.consultas_id_seq OWNER TO gestion_medica_user;
 
 --
--- TOC entry 3397 (class 0 OID 0)
+-- TOC entry 3402 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: consultas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gestion_medica_user
 --
@@ -108,7 +127,7 @@ ALTER SEQUENCE public.consultas_id_seq OWNED BY public.consultas.id;
 
 
 --
--- TOC entry 218 (class 1259 OID 16412)
+-- TOC entry 218 (class 1259 OID 16466)
 -- Name: medicos; Type: TABLE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -125,7 +144,7 @@ CREATE TABLE public.medicos (
 ALTER TABLE public.medicos OWNER TO gestion_medica_user;
 
 --
--- TOC entry 217 (class 1259 OID 16411)
+-- TOC entry 217 (class 1259 OID 16465)
 -- Name: medicos_id_seq; Type: SEQUENCE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -141,7 +160,7 @@ CREATE SEQUENCE public.medicos_id_seq
 ALTER SEQUENCE public.medicos_id_seq OWNER TO gestion_medica_user;
 
 --
--- TOC entry 3398 (class 0 OID 0)
+-- TOC entry 3403 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: medicos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gestion_medica_user
 --
@@ -150,7 +169,7 @@ ALTER SEQUENCE public.medicos_id_seq OWNED BY public.medicos.id;
 
 
 --
--- TOC entry 216 (class 1259 OID 16400)
+-- TOC entry 216 (class 1259 OID 16454)
 -- Name: pacientes; Type: TABLE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -170,7 +189,7 @@ CREATE TABLE public.pacientes (
 ALTER TABLE public.pacientes OWNER TO gestion_medica_user;
 
 --
--- TOC entry 215 (class 1259 OID 16399)
+-- TOC entry 215 (class 1259 OID 16453)
 -- Name: pacientes_id_seq; Type: SEQUENCE; Schema: public; Owner: gestion_medica_user
 --
 
@@ -186,7 +205,7 @@ CREATE SEQUENCE public.pacientes_id_seq
 ALTER SEQUENCE public.pacientes_id_seq OWNER TO gestion_medica_user;
 
 --
--- TOC entry 3399 (class 0 OID 0)
+-- TOC entry 3404 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: pacientes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gestion_medica_user
 --
@@ -195,7 +214,7 @@ ALTER SEQUENCE public.pacientes_id_seq OWNED BY public.pacientes.id;
 
 
 --
--- TOC entry 3220 (class 2604 OID 16424)
+-- TOC entry 3224 (class 2604 OID 16478)
 -- Name: citas id; Type: DEFAULT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -203,7 +222,7 @@ ALTER TABLE ONLY public.citas ALTER COLUMN id SET DEFAULT nextval('public.citas_
 
 
 --
--- TOC entry 3222 (class 2604 OID 16443)
+-- TOC entry 3226 (class 2604 OID 16497)
 -- Name: consultas id; Type: DEFAULT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -211,7 +230,7 @@ ALTER TABLE ONLY public.consultas ALTER COLUMN id SET DEFAULT nextval('public.co
 
 
 --
--- TOC entry 3219 (class 2604 OID 16415)
+-- TOC entry 3223 (class 2604 OID 16469)
 -- Name: medicos id; Type: DEFAULT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -219,7 +238,7 @@ ALTER TABLE ONLY public.medicos ALTER COLUMN id SET DEFAULT nextval('public.medi
 
 
 --
--- TOC entry 3218 (class 2604 OID 16403)
+-- TOC entry 3222 (class 2604 OID 16457)
 -- Name: pacientes id; Type: DEFAULT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -227,83 +246,96 @@ ALTER TABLE ONLY public.pacientes ALTER COLUMN id SET DEFAULT nextval('public.pa
 
 
 --
--- TOC entry 3388 (class 0 OID 16421)
+-- TOC entry 3392 (class 0 OID 16475)
 -- Dependencies: 220
 -- Data for Name: citas; Type: TABLE DATA; Schema: public; Owner: gestion_medica_user
 --
 
 COPY public.citas (id, paciente_id, medico_id, fecha_hora, estado) FROM stdin;
+1	1	1	2025-05-25 10:00:00	programada
+2	2	2	2025-05-26 14:30:00	completada
+3	3	3	2025-05-27 09:00:00	cancelada
+4	4	1	2025-05-28 11:15:00	programada
 \.
 
 
 --
--- TOC entry 3390 (class 0 OID 16440)
+-- TOC entry 3394 (class 0 OID 16494)
 -- Dependencies: 222
 -- Data for Name: consultas; Type: TABLE DATA; Schema: public; Owner: gestion_medica_user
 --
 
 COPY public.consultas (id, cita_id, sintomas, diagnostico, tratamiento, notas) FROM stdin;
+1	2	Fiebre, tos seca, dolor de garganta	Infección respiratoria leve	Reposo, hidratación, paracetamol	Controlar evolución en 3 días
+2	4	Dolor en el pecho al respirar	Posible angina de pecho	Exámenes complementarios, evitar esfuerzo físico	Urgente seguimiento
 \.
 
 
 --
--- TOC entry 3386 (class 0 OID 16412)
+-- TOC entry 3390 (class 0 OID 16466)
 -- Dependencies: 218
 -- Data for Name: medicos; Type: TABLE DATA; Schema: public; Owner: gestion_medica_user
 --
 
 COPY public.medicos (id, nombre, apellido, especialidad, correo, telefono) FROM stdin;
+1	Carlos	Lopez	Cardiología	carlos.lopez@email.com	555-1111
+2	Sofía	Martínez	Pediatría	sofia.martinez@email.com	555-2222
+3	Miguel	Torres	Dermatología	miguel.torres@email.com	555-3333
 \.
 
 
 --
--- TOC entry 3384 (class 0 OID 16400)
+-- TOC entry 3388 (class 0 OID 16454)
 -- Dependencies: 216
 -- Data for Name: pacientes; Type: TABLE DATA; Schema: public; Owner: gestion_medica_user
 --
 
 COPY public.pacientes (id, nombre, apellido, fecha_nacimiento, sexo, correo, telefono, direccion) FROM stdin;
+1	Juan	Pérez	1980-05-10	Masculino	juan.perez@email.com	555-1234	Calle Falsa 123
+2	María	Gómez	1992-08-22	Femenino	maria.gomez@email.com	555-5678	Avenida Siempre Viva 742
+3	Luis	Ramírez	1975-12-30	Masculino	luis.ramirez@email.com	555-8765	Boulevard Central 456
+4	Ana	Fernández	1988-03-15	Femenino	ana.fernandez@email.com	555-4321	Calle Luna 789
 \.
 
 
 --
--- TOC entry 3400 (class 0 OID 0)
+-- TOC entry 3405 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: citas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gestion_medica_user
 --
 
-SELECT pg_catalog.setval('public.citas_id_seq', 1, false);
+SELECT pg_catalog.setval('public.citas_id_seq', 4, true);
 
 
 --
--- TOC entry 3401 (class 0 OID 0)
+-- TOC entry 3406 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: consultas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gestion_medica_user
 --
 
-SELECT pg_catalog.setval('public.consultas_id_seq', 1, false);
+SELECT pg_catalog.setval('public.consultas_id_seq', 2, true);
 
 
 --
--- TOC entry 3402 (class 0 OID 0)
+-- TOC entry 3407 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: medicos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gestion_medica_user
 --
 
-SELECT pg_catalog.setval('public.medicos_id_seq', 1, false);
+SELECT pg_catalog.setval('public.medicos_id_seq', 3, true);
 
 
 --
--- TOC entry 3403 (class 0 OID 0)
+-- TOC entry 3408 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: pacientes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gestion_medica_user
 --
 
-SELECT pg_catalog.setval('public.pacientes_id_seq', 1, false);
+SELECT pg_catalog.setval('public.pacientes_id_seq', 4, true);
 
 
 --
--- TOC entry 3234 (class 2606 OID 16428)
+-- TOC entry 3238 (class 2606 OID 16482)
 -- Name: citas citas_pkey; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -312,7 +344,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 3236 (class 2606 OID 16447)
+-- TOC entry 3240 (class 2606 OID 16501)
 -- Name: consultas consultas_pkey; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -321,7 +353,7 @@ ALTER TABLE ONLY public.consultas
 
 
 --
--- TOC entry 3230 (class 2606 OID 16419)
+-- TOC entry 3234 (class 2606 OID 16473)
 -- Name: medicos medicos_correo_key; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -330,7 +362,7 @@ ALTER TABLE ONLY public.medicos
 
 
 --
--- TOC entry 3232 (class 2606 OID 16417)
+-- TOC entry 3236 (class 2606 OID 16471)
 -- Name: medicos medicos_pkey; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -339,7 +371,7 @@ ALTER TABLE ONLY public.medicos
 
 
 --
--- TOC entry 3226 (class 2606 OID 16410)
+-- TOC entry 3230 (class 2606 OID 16464)
 -- Name: pacientes pacientes_correo_key; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -348,7 +380,7 @@ ALTER TABLE ONLY public.pacientes
 
 
 --
--- TOC entry 3228 (class 2606 OID 16408)
+-- TOC entry 3232 (class 2606 OID 16462)
 -- Name: pacientes pacientes_pkey; Type: CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -357,7 +389,7 @@ ALTER TABLE ONLY public.pacientes
 
 
 --
--- TOC entry 3237 (class 2606 OID 16434)
+-- TOC entry 3241 (class 2606 OID 16488)
 -- Name: citas citas_medico_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -366,7 +398,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 3238 (class 2606 OID 16429)
+-- TOC entry 3242 (class 2606 OID 16483)
 -- Name: citas citas_paciente_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -375,7 +407,7 @@ ALTER TABLE ONLY public.citas
 
 
 --
--- TOC entry 3239 (class 2606 OID 16448)
+-- TOC entry 3243 (class 2606 OID 16502)
 -- Name: consultas consultas_cita_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gestion_medica_user
 --
 
@@ -383,7 +415,7 @@ ALTER TABLE ONLY public.consultas
     ADD CONSTRAINT consultas_cita_id_fkey FOREIGN KEY (cita_id) REFERENCES public.citas(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-05-20 18:22:11
+-- Completed on 2025-05-20 19:30:33
 
 --
 -- PostgreSQL database dump complete
